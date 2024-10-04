@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from "react";
 
 function Display({ display }) {
-  return <>{display}</>;
+  return <div>{display}</div>;
 }
 
 function Key({ label, onClick }) {
@@ -69,6 +69,10 @@ function App() {
     setDisp(0);
   };
 
+  const surnameClickHandler = () => {
+    setDisp("Mervie V. Isip"); 
+  }
+
   return (
     <div className="App">
       <h1>Mervie V. Isip - IT3A</h1>
@@ -95,6 +99,9 @@ function App() {
           <Key label={"="} onClick={eqClickHandler} />
           <Key label={"+"} onClick={opClickHandler} />
         </div>
+        <button className="surname-button" onClick={surnameClickHandler}>
+          ISIP
+        </button>
       </div>
     </div>
   );
