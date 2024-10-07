@@ -75,9 +75,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Mervie V. Isip - IT3A</h1>
+      <h1> Calculator of Mervie V. Isip - IT3A</h1>
       <div className="Calc">
-        <h2>Calculator</h2>
         <div className="Disp">
           <Display display={disp} />
         </div>
