@@ -72,7 +72,7 @@ function App() {
 
         {}
         <div className="nameButton">
-          <Key label={'ISIP'} clickHandler={nameClickHandler} />
+          <Key label={'NAME'} clickHandler={nameClickHandler} />
         </div>
       </div>
     </div>
