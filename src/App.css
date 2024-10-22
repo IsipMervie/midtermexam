@@ -1,79 +1,61 @@
-.App { 
-  box-sizing                   : border-box; 
-  text-align                  : center; 
-  padding                     : 20px; 
-  background-color            : #F0F4F8; 
-  font-family                 : 'Arial', sans-serif; 
-} 
-
-h1 { 
-  color                       : #2A5D9B; 
-  margin-bottom               : 1.5rem; 
-  font-size                   : 2.5rem; 
-} 
-
-.Calc { 
-  margin                      : auto; 
-  padding                     : 2rem; 
-  width                       : 350px; 
-  background-color            : #FFFFFF; 
-  border-radius               : 15px; 
-  box-shadow                  : 0 8px 30px rgba(0, 0, 0, 0.1); 
-} 
-
-.Disp { 
-  border                      : 1px solid #2A5D9B; 
-  background-color            : #E8F0F2; 
-  color                       : #2A5D9B; 
-  font-size                   : 2.5rem; 
-  height                      : 70px; 
-  text-align                  : right; 
-  margin-bottom               : 15px; 
-  padding                     : 15px; 
-  border-radius               : 8px; 
-} 
-
-.Buttons { 
-  display                     : grid; 
-  gap                         : 10px; 
-  grid-template-columns       : repeat(4, 1fr); 
-  height                      : auto; 
-} 
-
-.Buttons > button { 
-  background-color            : #F27B5E; 
-  color                       : white; 
-  border                      : none; 
-  border-radius               : 10px; 
-  transition                  : background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; 
-  cursor                      : pointer; 
-  height                      : 70px; 
-  font-size                   : 1.8rem; 
-} 
-
-.Buttons > button:hover { 
-  background-color            : #D45A4A; 
-  transform                   : translateY(-2px); 
-  box-shadow                  : 0 4px 15px rgba(0, 0, 0, 0.2); 
-} 
-
-.Buttons > button:active { 
-  transform                   : translateY(1px); 
-  box-shadow                  : none; 
+* {
+  box-sizing: border-box;
 }
 
-.surname-button {
-  margin-top                 : 20px; 
-  background-color           : #F27B5E; 
-  color                      : white; 
-  border                     : none; 
-  border-radius              : 10px; 
-  padding                   : 10px 20px; 
-  font-size                  : 1.5rem; 
-  cursor                     : pointer; 
-  transition                 : background-color 0.3s ease; 
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #F0F4F8;
 }
 
-.surname-button:hover {
-  background-color           : #D45A4A; 
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #2A5D9B;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.Display {
+  border: 1px solid #2A5D9B;
+  background-color: #E8F0F2;
+  color: #2A5D9B;
+  font-size: 2.5rem;
+  height: 70px;
+  text-align: right;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.Buttons {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+}
+
+.key {
+  background-color: #F27B5E;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  height: 70px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.key:hover {
+  background-color: #D45A4A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.key:active {
+  transform: translateY(1px);
+  box-shadow: none;
 }

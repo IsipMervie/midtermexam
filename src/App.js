@@ -2,105 +2,56 @@ import './App.css';
 import { useState } from "react";
 
 function Display({ display }) {
-  return <div>{display}</div>;
+  return <div className="display">{display}</div>;
 }
 
 function Key({ label, onClick }) {
   return (
-    <button onClick={onClick}>
+    <button className="key" onClick={onClick}>
       {label}
     </button>
   );
 }
 
 function App() {
-  const [disp, setDisp] = useState(0);
-  const [num1, setNum1] = useState(null);
-  const [num2, setNum2] = useState(null);
-  const [op, setOp] = useState(null);
+  const [disp, setDisp] = useState("10 Things That Require Zero Talent");
 
-  const numClickHandler = (e) => {
-    const value = e.target.innerHTML;
-    if (op === null) {
-      setNum1(num1 === null ? value : num1 + value);
-      setDisp(num1 === null ? value : num1 + value);
+  const points = [
+    "Being On Time",
+    "Making An Effort",
+    "Being High Energy",
+    "Having A Positive Attitude",
+    "Being Passionate",
+    "Using Good Body Language",
+    "Being Coachable",
+    "Doing A Little Extra",
+    "Being Prepared",
+    "Having A Strong Work Ethic",
+  ];
+
+  const keyClickHandler = (index) => {
+    if (index === 'RESET') {
+      setDisp("10 Things That Require Zero Talent");
+    } else if (index === 'NAME') {
+      setDisp("MERVIE V. ISIP");
     } else {
-      setNum2(num2 === null ? value : num2 + value);
-      setDisp(num2 === null ? value : num2 + value);
+      setDisp(points[index]);
     }
   };
-
-  const opClickHandler = (e) => {
-    const value = e.target.innerHTML;
-    setOp(value);
-    setDisp(value);
-  };
-
-  const eqClickHandler = () => {
-    if (num1 !== null && num2 !== null && op !== null) {
-      let result;
-      switch (op) {
-        case "+":
-          result = parseFloat(num1) + parseFloat(num2);
-          break;
-        case "-":
-          result = parseFloat(num1) - parseFloat(num2);
-          break;
-        case "*":
-          result = parseFloat(num1) * parseFloat(num2);
-          break;
-        case "÷":
-          result = parseFloat(num1) / parseFloat(num2);
-          break;
-        default:
-          result = "ERROR";
-      }
-      setDisp(result);
-      setNum1(result.toString());
-      setNum2(null);
-      setOp(null);
-    }
-  };
-
-  const clrClickHandler = () => {
-    setNum1(null);
-    setNum2(null);
-    setOp(null);
-    setDisp(0);
-  };
-
-  const surnameClickHandler = () => {
-    setDisp("Mervie V. Isip"); 
-  }
 
   return (
     <div className="App">
-      <h1> Calculator of Mervie V. Isip - IT3A</h1>
-      <div className="Calc">
-        <div className="Disp">
-          <Display display={disp} />
-        </div>
-        <div className="Buttons">
-          <Key label={7} onClick={numClickHandler} />
-          <Key label={8} onClick={numClickHandler} />
-          <Key label={9} onClick={numClickHandler} />
-          <Key label={"÷"} onClick={opClickHandler} />
-          <Key label={4} onClick={numClickHandler} />
-          <Key label={5} onClick={numClickHandler} />
-          <Key label={6} onClick={numClickHandler} />
-          <Key label={"*"} onClick={opClickHandler} />
-          <Key label={1} onClick={numClickHandler} />
-          <Key label={2} onClick={numClickHandler} />
-          <Key label={3} onClick={numClickHandler} />
-          <Key label={"-"} onClick={opClickHandler} />
-          <Key label={"C"} onClick={clrClickHandler} />
-          <Key label={0} onClick={numClickHandler} />
-          <Key label={"="} onClick={eqClickHandler} />
-          <Key label={"+"} onClick={opClickHandler} />
-        </div>
-        <button className="surname-button" onClick={surnameClickHandler}>
-          ISIP
-        </button>
+      <h1>MERVIE V. ISIP - IT3A</h1>
+      <div className="Display">
+        <Display display={disp} />
+      </div>
+      <div className="Buttons">
+        {points.map((_, index) => (
+          <Key key={index} label={index + 1} onClick={() => keyClickHandler(index)} />
+        ))}
+        <Key label={0} onClick={() => keyClickHandler(9)} />
+        <Key label={"RESET"} onClick={() => keyClickHandler('RESET')} />
+        <Key label={"NAME"} onClick={() => keyClickHandler('NAME')} />
       </div>
     </div>
   );
